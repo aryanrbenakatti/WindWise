@@ -4,7 +4,13 @@
   "services": {
     "backend": {
       "root": "backend",
-      "framework": "fastapi"
+      "framework": "fastapi",
+      "rewrites": [
+        {
+          "source": "/api/(.*)",
+          "destination": "/$1"
+        }
+      ]
     },
     "frontend": {
       "root": "frontend",
@@ -12,12 +18,6 @@
     }
   },
   "rewrites": [
-    {
-      "source": "/api",
-      "destination": {
-        "service": "backend"
-      }
-    },
     {
       "source": "/api/(.*)",
       "destination": {
